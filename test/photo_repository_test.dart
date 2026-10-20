@@ -12,7 +12,8 @@ void main() {
   });
 
   test('фильтр стиля возвращает только подходящие залы', () async {
-    final result = await InMemoryHallRepository().find(const HallQuery(style: 'Лофт'));
+    final result =
+        await InMemoryHallRepository().find(const HallQuery(style: 'Лофт'));
     expect(result.items, isNotEmpty);
     expect(result.items.every((hall) => hall.style == 'Лофт'), isTrue);
   });
@@ -21,12 +22,20 @@ void main() {
     final repo = InMemoryHallRepository();
     final id = (await repo.find(const HallQuery())).items.first.id;
     await repo.softDelete(id);
-    expect((await repo.find(const HallQuery(size: 50))).items.any((hall) => hall.id == id), isFalse);
+    expect(
+        (await repo.find(const HallQuery(size: 50)))
+            .items
+            .any((hall) => hall.id == id),
+        isFalse);
   });
 
   test('поиск фотографов выполняется по специализации', () async {
-    final result = await InMemoryPhotographerRepository().find(const PhotographerQuery(search: 'fashion'));
+    final result = await InMemoryPhotographerRepository()
+        .find(const PhotographerQuery(search: 'fashion'));
     expect(result.items, isNotEmpty);
-    expect(result.items.every((person) => person.specialization.toLowerCase().contains('fashion')), isTrue);
+    expect(
+        result.items.every((person) =>
+            person.specialization.toLowerCase().contains('fashion')),
+        isTrue);
   });
 }

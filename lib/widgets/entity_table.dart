@@ -11,10 +11,17 @@ class EntityTable<T> extends StatelessWidget {
   final ValueChanged<String> onSort;
   final List<Widget> Function(T) actions;
 
-  const EntityTable({super.key, required this.items, required this.id,
-    required this.selected, required this.toggle, required this.columns,
-    required this.sort, required this.asc, required this.onSort,
-    required this.actions});
+  const EntityTable(
+      {super.key,
+      required this.items,
+      required this.id,
+      required this.selected,
+      required this.toggle,
+      required this.columns,
+      required this.sort,
+      required this.asc,
+      required this.onSort,
+      required this.actions});
 
   @override
   Widget build(BuildContext context) {
@@ -29,16 +36,20 @@ class EntityTable<T> extends StatelessWidget {
             for (final column in columns)
               DataColumn(
                 label: Text(column.$1),
-                onSort: column.$2 == null ? null : (_, __) => onSort(column.$2!),
+                onSort:
+                    column.$2 == null ? null : (_, __) => onSort(column.$2!),
               ),
             const DataColumn(label: Text('Действия')),
           ],
           rows: [
             for (final item in items)
               DataRow(cells: [
-                DataCell(Checkbox(value: selected.contains(id(item)), onChanged: (_) => toggle(id(item)))),
+                DataCell(Checkbox(
+                    value: selected.contains(id(item)),
+                    onChanged: (_) => toggle(id(item)))),
                 for (final column in columns) DataCell(column.$3(item)),
-                DataCell(Row(mainAxisSize: MainAxisSize.min, children: actions(item))),
+                DataCell(Row(
+                    mainAxisSize: MainAxisSize.min, children: actions(item))),
               ]),
           ],
         ),
