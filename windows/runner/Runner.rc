@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "library_web" "\0"
+            VALUE "FileDescription", "photo_studio_portal" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "library_web" "\0"
+            VALUE "InternalName", "photo_studio_portal" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2026 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "library_web.exe" "\0"
-            VALUE "ProductName", "library_web" "\0"
+            VALUE "OriginalFilename", "photo_studio_portal.exe" "\0"
+            VALUE "ProductName", "photo_studio_portal" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

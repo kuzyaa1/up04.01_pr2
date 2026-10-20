@@ -1,6 +1,6 @@
 {
-    "name": "library_web",
-    "short_name": "library_web",
+    "name": "FocusFrame Photo Studio",
+    "short_name": "FocusFrame",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
